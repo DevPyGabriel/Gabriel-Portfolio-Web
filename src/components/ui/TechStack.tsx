@@ -63,7 +63,7 @@ export const TechStack = () => {
     <div
       role="group"
       aria-label="Tecnologías y herramientas"
-      className="tech-stack mt-12 w-screen max-w-full"
+      className="tech-stack my-12 w-screen max-w-full"
     >
       <div
         ref={viewportRef}
