@@ -193,7 +193,7 @@ export const Header = () => {
       ref={headerRef}
       className="fixed inset-x-0 top-0 z-50 px-4 pt-4 font-bricolage sm:px-6 sm:pt-6"
     >
-      <div className="mx-auto flex max-w-5xl items-center justify-between gap-4 rounded-full bg-surface px-5 py-3 shadow-header sm:px-6">
+      <div className="mx-auto flex max-w-5xl items-center justify-between gap-4 rounded-full bg-surface px-5 py-2 md:py-3 shadow-header sm:px-6">
         <a
           href={items[0].href}
           onClick={handleNavigate}
