@@ -161,7 +161,7 @@ export const Hero = () => {
   return (
     <section
       ref={sectionRef}
-      className="min-h-svh w-full bg-neutral-100 flex items-center"
+      className="min-h-dvh w-full bg-neutral-100 flex items-center"
     >
       <div className="flex w-full max-w-[1200px] flex-col mx-auto gap-5 px-4 md:gap-6 items-center font-[450] lg:font-normal">
         <div className="flex px-6 py-2 bg-surface w-fit font-inter items-center gap-3 rounded-full shadow-tag">
