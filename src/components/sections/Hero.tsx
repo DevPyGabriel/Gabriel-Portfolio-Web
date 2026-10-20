@@ -161,7 +161,7 @@ export const Hero = () => {
   return (
     <section
       ref={sectionRef}
-      className="min-h-screen w-full bg-neutral-100 flex items-center pt-28"
+      className="min-h-screen w-full bg-neutral-100 flex items-center pt-26"
     >
       <div className="flex w-full max-w-300 flex-col mx-auto gap-5 px-4 md:gap-6 items-center font-[450] lg:font-normal">
         <div className="flex px-6 py-2 bg-surface w-fit font-inter items-center gap-3 rounded-full shadow-tag">
@@ -211,7 +211,7 @@ export const Hero = () => {
 
         <div className="max-w-86 xs:max-w-sm sm:max-w-lg md:max-w-2xl text-center pt-4 pb-3 text-body font-inter font-normal">
           <p className="text-pretty">
-            Combino desarrollo <span className="text-base font-medium">frontend y criterio de UI/UX</span> para crear interfaces intuitivas, atractivas y funcionales, cuidando tanto los detalles visuales como la <span className="text-base font-medium">experiencia de cada usuario.</span>
+            Combino <span className="text-base font-medium">desarrollo web y criterio de UI/UX</span> para crear interfaces intuitivas, atractivas y funcionales, cuidando tanto los detalles visuales como la <span className="text-base font-medium">experiencia de cada usuario.</span>
           </p>
         </div>
 
