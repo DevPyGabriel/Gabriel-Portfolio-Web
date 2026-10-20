@@ -128,6 +128,10 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+html {
+  background-color: var(--color-neutral-100);
+}
+
 .tech-stack__viewport {
   width: 100%;
   overflow: hidden;
