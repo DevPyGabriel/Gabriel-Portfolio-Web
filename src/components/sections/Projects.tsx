@@ -34,6 +34,8 @@ type Project = {
   technologies: Technology[];
 };
 
+// Contenido de cada tarjeta y su modal. Añade aquí un objeto nuevo para sumar un proyecto.
+// Mantén un `id` único y completa `image`, `description`, `authors` y `previewUrl` según aplique.
 const projects: Project[] = [
   {
     id: "novadrive",
@@ -115,6 +117,7 @@ const PROJECT_REVEAL = {
 const PROJECT_CARD_HOVER =
   "hover:-translate-y-2 hover:shadow-card-hover hover:-rotate-5 transition-all duration-200";
 
+// Calcula una inclinación estable por índice para que cada tarjeta termine con un ángulo distinto.
 const getProjectCardRotation = (index: number) =>
   Number((-5 + ((index * 0.618033988749895) % 1) * 10).toFixed(2));
 
@@ -123,6 +126,7 @@ export const Projects = () => {
   const dialogRef = useRef<HTMLDialogElement>(null);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
+  // Abre y anima la modal al elegir un proyecto; también limpia la animación al cerrarla.
   useEffect(() => {
     const dialog = dialogRef.current;
     if (!dialog || !selectedProject || dialog.open) return;
@@ -157,6 +161,7 @@ export const Projects = () => {
     dialogRef.current?.close();
   };
 
+  // Anima el título y las tarjetas al entrar en viewport; respeta movimiento reducido.
   useGSAP(
     () => {
       const section = sectionRef.current;
@@ -250,6 +255,7 @@ export const Projects = () => {
     >
       <div className="mx-auto my-12 sm:my-16 md:my-20 lg:my-24">
         <div className="px-4 sm:px-6 md:px-12 lg:max-w-5xl h-full flex flex-col">
+          {/* Encabezado: edita aquí el texto y la composición del título de la sección. */}
           <h4 className="text-center text-5xl xs:text-6xl sm:text-[54px] md:text-[64px] lg:text-8xl tracking-tight lg:tracking-normal text-surface leading-none lg:max-w-full pb-12 sm:pb-14 md:pb-16 lg:pb-20 xl:pb-24">
             <span className="projects-reveal inline-block relative">
               <div className="absolute px-3 py-1.5 text-sm bg-base rounded-md -top-8 text-surface flex items-center gap-1.5 shadow-header font-inter tracking-normal">
@@ -272,12 +278,14 @@ export const Projects = () => {
               Problemas
             </span>
           </h4>
+          {/* Grid: ajusta columnas y separación en las clases de este contenedor. */}
           <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 md:gap-12 place-items-center px-4 xs:px-0">
             {projects.map((project, index) => (
               <article
                 key={`${project.id}-${index}`}
                 className={`project-card-reveal group relative w-full max-w-md flex flex-col gap-2 rounded-xl bg-surface p-2 shadow-card transition-[transform,box-shadow] duration-300 ease-out ${PROJECT_CARD_HOVER} motion-reduce:transition-none motion-reduce:hover:transform md:max-w-full`}
               >
+                {/* Tarjeta: modifica su estructura visual aquí; el contenido viene de `projects`. */}
                 <button
                   type="button"
                   className="absolute inset-0 z-10 cursor-pointer rounded-xl focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-coral focus-visible:ring-offset-4"
@@ -337,6 +345,7 @@ export const Projects = () => {
           </div>
         </div>
       </div>
+      {/* Modal de detalle: estructura y estilos del navegador, preview, descripción y metadatos. */}
       <dialog
         ref={dialogRef}
         aria-labelledby="project-dialog-title"
@@ -356,6 +365,7 @@ export const Projects = () => {
       >
         {selectedProject && (
           <div>
+            {/* Barra superior de la modal con ruta visual y control de cierre. */}
             <div className="flex h-14 items-center gap-2 border-b border-gray-200 px-4 sm:px-6">
               <span className="size-3 rounded-full bg-coral" />
               <span className="size-3 rounded-xs bg-blue-400" />
@@ -367,7 +377,7 @@ export const Projects = () => {
               </div>
               <button
                 type="button"
-                className="ml-auto flex size-9 shrink-0 items-center justify-center rounded-full transition-colors hover:bg-gray-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-coral"
+                className="ml-auto flex size-9 shrink-0 items-center justify-center rounded-full transition-colors hover:bg-gray-100 focus-visible:outline-none"
                 aria-label="Cerrar detalles del proyecto"
                 onClick={closeProjectDialog}
               >
@@ -375,6 +385,7 @@ export const Projects = () => {
               </button>
             </div>
             <div className="p-4 sm:p-6">
+              {/* Preview principal; se puede cambiar su proporción desde `aspect-*`. */}
               <div className="mb-8 aspect-[1.45/1] overflow-hidden rounded-xl bg-gray-100 shadow-card sm:aspect-[1.6/1]">
                 {selectedProject.image ? (
                   <img
@@ -392,6 +403,7 @@ export const Projects = () => {
                   </div>
                 )}
               </div>
+              {/* Título y enlace opcional a la vista publicada del proyecto. */}
               <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
                 <h2
                   id="project-dialog-title"
@@ -420,6 +432,7 @@ export const Projects = () => {
               >
                 {selectedProject.description}
               </p>
+              {/* Metadatos: autoría, año, tipo y herramientas. */}
               <dl className="grid grid-cols-2 gap-x-6 gap-y-6 font-inter sm:gap-x-12">
                 <div>
                   <dt className="mb-1 text-sm text-body">Autores</dt>
@@ -444,6 +457,7 @@ export const Projects = () => {
                   </dd>
                 </div>
               </dl>
+              {/* Captura adicional opcional; se muestra solo si el proyecto define `detailPreviewImage`. */}
               {selectedProject.detailPreviewImage && (
                 <div className="mt-8 overflow-hidden rounded-xl bg-base p-3 sm:p-5">
                   <img

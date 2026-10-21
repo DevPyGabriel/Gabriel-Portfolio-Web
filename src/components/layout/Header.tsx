@@ -197,9 +197,9 @@ export const Header = () => {
         <a
           href={items[0].href}
           onClick={handleNavigate}
-          className="shrink-0 rounded-full font-bold tracking-tight text-base outline-none transition-colors duration-200 hover:text-blue focus-visible:ring-2 focus-visible:ring-blue focus-visible:ring-offset-4 font-inter"
+          className="shrink-0 rounded-full font-bold tracking-tight text-base outline-none transition-colors duration-200 hover:text-blue font-inter group"
         >
-          FOCUS <span className="text-blue">STUDIO</span>
+          FOCUS <span className="text-blue group-hover:text-base transition-colors duration-200">STUDIO</span>
         </a>
 
         <nav aria-label="Navegación principal" className="hidden md:block">

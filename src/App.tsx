@@ -37,7 +37,7 @@ export default function App() {
         // Multiplicador de la distancia recibida de la rueda del mouse.
         wheelMultiplier: 0.75,
         // Multiplicador de la distancia recibida de gestos táctiles.
-        touchMultiplier: 0.9,
+        touchMultiplier: 1.1,
         // Suaviza el desplazamiento iniciado con la rueda del mouse.
         smoothWheel: true,
         // Sincroniza el gesto táctil con el desplazamiento suave de Lenis.
