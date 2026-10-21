@@ -19,10 +19,13 @@ type Technology = {
   Icon: ComponentType<{ className?: string }>;
 };
 
+type PaperclipColor = "blue" | "pink" | "yellow" | "mint";
+
 type Project = {
   id: string;
   name: string;
   category: string;
+  paperclipColor: PaperclipColor;
   image?: string;
   imageAlt: string;
   detailPreviewImage?: string;
@@ -35,13 +38,14 @@ type Project = {
 };
 
 // Contenido de cada tarjeta y su modal. Añade aquí un objeto nuevo para sumar un proyecto.
-// Mantén un `id` único y completa `image`, `description`, `authors` y `previewUrl` según aplique.
+// Mantén un `id` único y elige `paperclipColor` entre blue, pink, yellow y mint.
 const projects: Project[] = [
   {
     id: "novadrive",
     name: "NovaDrive",
     category: "Landing Page",
-    image: "/assets/opengraph_img.webp",
+    paperclipColor: "blue",
+    image: "/assets/mockup-novadrive.webp",
     imageAlt: "Vista previa del proyecto NovaDrive",
     description:
       "Landing page para NovaDrive, desarrollada con React y Tailwind CSS.",
@@ -57,7 +61,8 @@ const projects: Project[] = [
     id: "novadrive",
     name: "NovaDrive",
     category: "Landing Page",
-    image: "/assets/opengraph_img.webp",
+    paperclipColor: "pink",
+    image: "/assets/mockup-novadrive.webp",
     imageAlt: "Vista previa del proyecto NovaDrive",
     description:
       "Landing page para NovaDrive, desarrollada con React y Tailwind CSS.",
@@ -73,7 +78,8 @@ const projects: Project[] = [
     id: "novadrive",
     name: "NovaDrive",
     category: "Landing Page",
-    image: "/assets/opengraph_img.webp",
+    paperclipColor: "yellow",
+    image: "/assets/mockup-novadrive.webp",
     imageAlt: "Vista previa del proyecto NovaDrive",
     description:
       "Landing page para NovaDrive, desarrollada con React y Tailwind CSS.",
@@ -89,7 +95,8 @@ const projects: Project[] = [
     id: "novadrive",
     name: "NovaDrive",
     category: "Landing Page",
-    image: "/assets/opengraph_img.webp",
+    paperclipColor: "mint",
+    image: "/assets/mockup-novadrive.webp",
     imageAlt: "Vista previa del proyecto NovaDrive",
     description:
       "Landing page para NovaDrive, desarrollada con React y Tailwind CSS.",
@@ -116,6 +123,13 @@ const PROJECT_REVEAL = {
 
 const PROJECT_CARD_HOVER =
   "hover:-translate-y-2 hover:shadow-card-hover hover:-rotate-5 transition-all duration-200";
+
+const PAPERCLIP_COLOR_CLASSES: Record<PaperclipColor, string> = {
+  blue: "text-blue",
+  pink: "text-pink",
+  yellow: "text-yellow",
+  mint: "text-mint",
+};
 
 // Calcula una inclinación estable por índice para que cada tarjeta termine con un ángulo distinto.
 const getProjectCardRotation = (index: number) =>
@@ -256,7 +270,7 @@ export const Projects = () => {
       <div className="mx-auto my-12 sm:my-16 md:my-20 lg:my-24">
         <div className="px-4 sm:px-6 md:px-12 lg:max-w-5xl h-full flex flex-col">
           {/* Encabezado: edita aquí el texto y la composición del título de la sección. */}
-          <h4 className="text-center text-5xl xs:text-6xl sm:text-[54px] md:text-[64px] lg:text-8xl tracking-tight lg:tracking-normal text-surface leading-none lg:max-w-full pb-12 sm:pb-14 md:pb-16 lg:pb-20 xl:pb-24">
+          <h4 className="text-center text-5xl xs:text-6xl sm:text-[54px] md:text-[64px] lg:text-8xl tracking-tight lg:tracking-normal text-surface leading-[1.2] lg:leading-none lg:max-w-full pb-12 sm:pb-14 md:pb-16 lg:pb-20 xl:pb-24">
             <span className="projects-reveal inline-block relative">
               <div className="absolute px-3 py-1.5 text-sm bg-base rounded-md -top-8 text-surface flex items-center gap-1.5 shadow-header font-inter tracking-normal">
                 <span>Desarrollo web</span>
@@ -265,12 +279,12 @@ export const Projects = () => {
               Proyectos
             </span>{" "}
             <span className="projects-reveal">que</span>{" "}
-            <span className="projects-reveal px-4 py-1 bg-yellow inline-block text-base rounded-xl">
+            <span className="projects-reveal px-2 md:px-3 lg:px-4 lg:py-1 bg-yellow inline-block text-base rounded-xl">
               Solucionan
             </span>
             <br />
             <span className="projects-reveal">tus</span>{" "}
-            <span className="projects-reveal projects-reveal--tilted hero-text__inner inline-block px-4 py-1 -mx-1 outline outline-base relative -rotate-3 bg-coral-100 text-coral">
+            <span className="projects-reveal projects-reveal--tilted hero-text__inner inline-block px-2 md:px-3 lg:px-4 lg:py-1 -mx-1 outline outline-base relative -rotate-3 bg-coral-100 text-coral">
               <span className="size-2.5 outline outline-base absolute -left-1.5 -top-1.5 bg-coral"></span>
               <span className="size-2.5 outline outline-base absolute -right-1.5 -top-1.5 bg-coral"></span>
               <span className="size-2.5 outline outline-base absolute -left-1.5 -bottom-1.5 bg-coral"></span>
@@ -283,61 +297,71 @@ export const Projects = () => {
             {projects.map((project, index) => (
               <article
                 key={`${project.id}-${index}`}
-                className={`project-card-reveal group relative w-full max-w-md flex flex-col gap-2 rounded-xl bg-surface p-2 shadow-card transition-[transform,box-shadow] duration-300 ease-out ${PROJECT_CARD_HOVER} motion-reduce:transition-none motion-reduce:hover:transform md:max-w-full`}
+                className="project-card-reveal w-full max-w-md md:max-w-full"
               >
-                {/* Tarjeta: modifica su estructura visual aquí; el contenido viene de `projects`. */}
-                <button
-                  type="button"
-                  className="absolute inset-0 z-10 cursor-pointer rounded-xl focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-coral focus-visible:ring-offset-4"
-                  aria-label={`Ver detalles de ${project.name}`}
-                  onClick={() => setSelectedProject(project)}
-                />
-                <div className="absolute left-1/2 -top-3 text-pink transition-transform duration-300 group-hover:-translate-y-1 motion-reduce:transition-none">
-                  <Paperclip className="size-8 lg:size-10" />
-                </div>
-                <div className="flex items-center gap-1.5">
-                  <span className="size-3 rounded-full bg-coral" />
-                  <span className="size-3 rounded-xs bg-blue-400" />
-                  <Triangle className="size-3 fill-yellow-500 stroke-4 stroke-yellow-500" />
-                </div>
-                <div className="relative min-h-60 w-full overflow-hidden rounded-lg bg-gray-100">
-                  {project.image ? (
-                    <img
-                      className="max-h-72 aspect-square w-full rounded-lg object-cover transition-transform duration-500 group-hover:scale-105 motion-reduce:transition-none motion-reduce:group-hover:transform-none"
-                      src={project.image}
-                      alt={project.imageAlt}
-                    />
-                  ) : (
-                    <div
-                      className="flex min-h-60 items-center justify-center font-inter text-sm text-body"
-                      role="img"
-                      aria-label={project.imageAlt}
-                    >
-                      Vista previa no disponible
-                    </div>
-                  )}
-                  <span className="absolute right-0 top-0 m-3 flex size-8 items-center justify-center rounded-full bg-white shadow-tag">
-                    <ArrowUpRight className="size-5" />
-                  </span>
-                </div>
-                <div className="flex w-full flex-col gap-2">
-                  <div className="flex items-center justify-between gap-3">
-                    <h5 className="text-2xl font-medium tracking-tight">
-                      {project.name}
-                    </h5>
-                    <span className="rounded-md bg-blue-200 px-2 py-1 font-inter text-sm text-blue-700">
-                      {project.category}
+                <div
+                  className={`group relative flex w-full flex-col gap-2 rounded-xl bg-surface p-2 shadow-card transition-[transform,box-shadow] duration-300 ease-out ${PROJECT_CARD_HOVER} motion-reduce:transition-none motion-reduce:hover:transform`}
+                >
+                  {/* Tarjeta: modifica su estructura visual aquí; el contenido viene de `projects`. */}
+                  <button
+                    type="button"
+                    className="absolute inset-0 z-10 cursor-pointer rounded-xl focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-coral focus-visible:ring-offset-4"
+                    aria-label={`Ver detalles de ${project.name}`}
+                    onClick={() => setSelectedProject(project)}
+                  />
+                  <div
+                    className={`absolute left-1/2 -top-3 transition-transform duration-300 group-hover:-translate-y-1 motion-reduce:transition-none ${PAPERCLIP_COLOR_CLASSES[project.paperclipColor]}`}
+                  >
+                    <Paperclip className="size-8 lg:size-10" />
+                  </div>
+                  <div className="flex items-center gap-1.5">
+                    <span className="size-3 rounded-full bg-coral" />
+                    <span className="size-3 rounded-xs bg-blue-400" />
+                    <Triangle className="size-3 fill-yellow-500 stroke-4 stroke-yellow-500" />
+                  </div>
+                  <div className="relative min-h-60 w-full overflow-hidden rounded-lg bg-gray-100">
+                    {project.image ? (
+                      <img
+                        className="max-h-72 aspect-square w-full rounded-lg object-cover transition-transform duration-500 group-hover:scale-105 motion-reduce:transition-none motion-reduce:group-hover:transform-none"
+                        src={project.image}
+                        alt={project.imageAlt}
+                      />
+                    ) : (
+                      <div
+                        className="flex min-h-60 items-center justify-center font-inter text-sm text-body"
+                        role="img"
+                        aria-label={project.imageAlt}
+                      >
+                        Vista previa no disponible
+                      </div>
+                    )}
+                    <span className="absolute right-0 top-0 m-3 flex size-8 items-center justify-center rounded-full bg-white shadow-tag">
+                      <ArrowUpRight className="size-5" />
                     </span>
                   </div>
-                  <div className="flex items-center justify-between gap-3">
-                    <div className="flex items-center gap-2">
-                      {project.technologies.map(({ name, Icon }) => (
-                        <Icon key={name} className="size-6" aria-label={name} />
-                      ))}
+                  <div className="flex w-full flex-col gap-2">
+                    <div className="flex items-center justify-between gap-3">
+                      <h5 className="text-2xl font-medium tracking-tight">
+                        {project.name}
+                      </h5>
+                      <span className="rounded-md bg-blue-200 px-2 py-1 font-inter text-sm text-blue-700">
+                        {project.category}
+                      </span>
                     </div>
-                    <span className="font-inter text-xs text-body">
-                      Desarrollado en {project.year}
-                    </span>
+                    <div className="flex items-center justify-between gap-3">
+                      <div className="flex items-center gap-2">
+                        {project.technologies.map(({ name, Icon }) => (
+                          <Icon
+                            key={name}
+                            className="size-6"
+                            aria-label={name}
+                          />
+                        ))}
+                      </div>
+                      <span className="font-inter text-xs text-body">
+                        Desarrollado en {project.year}
+                      </span>
+                    </div>
                   </div>
                 </div>
               </article>
