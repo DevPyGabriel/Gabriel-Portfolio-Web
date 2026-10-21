@@ -162,6 +162,7 @@ export const Hero = () => {
     <section
       ref={sectionRef}
       className="min-h-screen w-full bg-neutral-100 flex items-center pt-26"
+      id="inicio"
     >
       <div className="flex w-full max-w-300 flex-col mx-auto gap-5 px-4 md:gap-6 items-center font-[450] lg:font-normal">
         <div className="flex px-6 py-2 bg-surface w-fit font-inter items-center gap-3 rounded-full shadow-tag">
@@ -184,7 +185,7 @@ export const Hero = () => {
           </span>
         </h2>
 
-        <h1 className="flex flex-col sm:flex-row items-center gap-5 md:gap-6 text-5xl xs:text-6xl sm:text-[54px] md:text-[64px] lg:text-8xl tracking-tight lg:tracking-normal">
+        <h1 className="flex flex-col sm:flex-row items-center gap-5 md:gap-6 text-5xl xs:text-6xl sm:text-[54px] md:text-[64px] lg:text-8xl tracking-tight lg:tracking-normal text-nowrap">
           <span className="hero-text inline-block">
             <span className="hero-text__inner inline-block px-4 py-1 -mx-1 outline outline-base relative -rotate-5">
               <span className="size-2.5 outline absolute -left-1.5 -top-1.5 bg-mint"></span>

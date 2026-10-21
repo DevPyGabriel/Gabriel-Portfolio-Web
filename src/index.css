@@ -157,12 +157,12 @@ html {
 
 .tech-stack__group {
   display: flex;
-  width: max(100vw, 56rem);
+  width: max(100vw, 48rem);
   flex: none;
   align-items: center;
   justify-content: space-between;
-  gap: clamp(2rem, 5vw, 4rem);
-  padding-inline: clamp(2rem, 6vw, 5rem);
+  gap: clamp(1.25rem, 2.5vw, 2.5rem);
+  padding-inline: clamp(1.5rem, 4vw, 3.5rem);
 }
 
 .tech-stack__item {
@@ -172,14 +172,14 @@ html {
   gap: 0.75rem;
   color: var(--color-body);
   font-family: var(--font-inter);
-  font-size: 1rem;
+  font-size: 1.0625rem;
   font-weight: 500;
   white-space: nowrap;
 }
 
 .tech-stack__icon {
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 2.75rem;
+  height: 2.75rem;
   flex: none;
 }
 
@@ -218,4 +218,13 @@ html {
   .tech-stack__group + .tech-stack__group {
     display: none;
   }
+}
+
+.project-bg-img {
+  background-image:
+    linear-gradient(hsla(0, 0%, 7%, 0.1), hsla(0, 0%, 7%, 0.1)),
+    url("/public/assets/projects-bg.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }

@@ -218,7 +218,7 @@ export const Header = () => {
                   {index === activeIndex && (
                     <span
                       aria-hidden="true"
-                      className="absolute inset-x-4 bottom-1 h-0.5 rounded-full bg-blue"
+                      className={`absolute inset-x-4 bottom-1 h-0.5 rounded-full ${item.underlineClass}`}
                     />
                   )}
                 </a>
