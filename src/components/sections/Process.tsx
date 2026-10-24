@@ -150,7 +150,7 @@ export const Process = () => {
               <h2 className="text-4xl xs:text-5xl sm:text-[54px] md:text-[64px] lg:text-6xl xl:text-7xl tracking-tight lg:tracking-normal leading-[1.15] lg:leading-none">
                 <span className="process-reveal inline-block relative">
                   <div className="absolute -top-8 left-1 -rotate-3 whitespace-nowrap font-inter tracking-normal">
-                    <div className="relative flex items-center gap-1.5 rounded-md border-2 border-white bg-pink-200 py-1.5 px-5 text-xs font-semibold text-blue-900 shadow-tag outline outline-1 outline-base/10 sm:text-sm">
+                    <div className="relative flex items-center gap-1.5 rounded-md border-2 border-white bg-pink-200 py-1.5 px-5 text-xs font-semibold text-blue-900 shadow-tag outline-1 outline-base/10 sm:text-sm">
                       <span className="absolute -left-3 flex size-8 -translate-y-1/2 items-center justify-center rounded-full border-2 border-white bg-pink text-white shadow-[0_2px_6px_rgb(23_23_23/0.18)]">
                         <Workflow size={16} aria-hidden="true" />
                       </span>

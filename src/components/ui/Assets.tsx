@@ -3,6 +3,7 @@ import { forwardRef, type SVGProps } from "react";
 export type IconProps = SVGProps<SVGSVGElement> & {
   size?: number | string;
   color?: string;
+  stroke?: number | string;
 };
 
 const TypeScript = (props: SVGProps<SVGSVGElement>) => (
@@ -19,7 +20,6 @@ const TypeScript = (props: SVGProps<SVGSVGElement>) => (
 );
 
 export { TypeScript };
-
 
 const TailwindCSS = (props: SVGProps<SVGSVGElement>) => (
   <svg {...props} fill="none" viewBox="0 0 54 33">
@@ -40,7 +40,6 @@ const TailwindCSS = (props: SVGProps<SVGSVGElement>) => (
 );
 
 export { TailwindCSS };
-
 
 const Astro = (props: SVGProps<SVGSVGElement>) => (
   <svg {...props} fill="none" viewBox="0 0 85 107">
@@ -73,7 +72,6 @@ const Astro = (props: SVGProps<SVGSVGElement>) => (
 );
 
 export { Astro };
-
 
 const Figma = (props: SVGProps<SVGSVGElement>) => (
   <svg {...props} viewBox="0 0 54 80" fill="none">
@@ -109,7 +107,6 @@ const Figma = (props: SVGProps<SVGSVGElement>) => (
 
 export { Figma };
 
-
 const React = (props: SVGProps<SVGSVGElement>) => (
   <svg
     {...props}
@@ -135,8 +132,6 @@ const React = (props: SVGProps<SVGSVGElement>) => (
 
 export { React };
 
-
-
 export const HeroShape = forwardRef<SVGSVGElement, IconProps>(
   function HeroShape(
     {
@@ -161,6 +156,35 @@ export const HeroShape = forwardRef<SVGSVGElement, IconProps>(
         <path
           d="M159.604 4.11855C180.027 9.66188 186.437 26.2921 184.74 41.2591C183.059 56.0911 167.224 69.3048 144.005 68.4483C150.328 68.9417 170.224 76.2708 174.267 93.9207C178.457 112.214 169.086 123.511 157.509 129.398C139.343 138.635 119.282 138.609 102 137.5C112.621 143.411 127.831 154.491 129.754 171.527C131.676 188.564 117.185 204.787 87.859 198.69C58.5326 192.592 2.86733 167.5 17.685 124.409C23.6268 107.13 43.0916 100.614 54.3429 98.3554C59.2136 97.3776 73.7192 95.0294 94.1427 95.0294C69.6562 92.673 31.6167 80.6166 29.7299 53.4543C25.9563 -0.870216 123.061 -5.79979 159.604 4.11855Z"
           fill={color}
+        />
+      </svg>
+    );
+  },
+);
+
+export const CardVector1 = forwardRef<SVGSVGElement, IconProps>(
+  function CardVector1(
+    {
+      stroke = "9",
+      color = "currentColor",
+      ...props
+    },
+  ) {
+    return (
+      <svg
+        width="69"
+        height="129"
+        viewBox="0 0 69 129"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        {...props}
+      >
+        <path
+          d="M10.0743 135.316C0.702768 121.786 3.59602 100.44 15.3888 90.2199C23.7747 82.9525 38.0245 78.9608 47.5756 81.663M47.5756 81.663C51.4559 82.7608 54.5606 84.9634 56.1816 88.5C61.6816 100.5 47.9576 110.624 41.0571 104.936C34.6387 99.6462 40.2832 91.4538 47.5756 81.663ZM47.5756 81.663C56.0481 70.288 66.745 56.7556 63.3332 43.1108C61.7266 36.6855 56.1634 32.7971 50.0221 31.2526M50.0221 31.2526C43.9169 29.7172 37.2404 30.4981 33.3114 33.4056C23.7096 40.5109 31.1816 51 41.0571 46.5C47.226 43.689 49.8077 37.9075 50.0221 31.2526ZM50.0221 31.2526C50.4897 16.7341 39.6899 -1.9417 30.2897 -3"
+          stroke-width={stroke}
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke={color}
         />
       </svg>
     );

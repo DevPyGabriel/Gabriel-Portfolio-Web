@@ -269,10 +269,15 @@ export const Projects = () => {
           {/* Encabezado: edita aquí el texto y la composición del título de la sección. */}
           <h4 className="text-center text-5xl xs:text-6xl sm:text-[54px] md:text-[64px] lg:text-8xl tracking-tight lg:tracking-normal text-surface leading-[1.2] lg:leading-none lg:max-w-full pb-12 sm:pb-14 md:pb-16 lg:pb-20 xl:pb-24">
             <span className="projects-reveal inline-block relative">
-              <div className="absolute px-3 py-1.5 text-sm bg-base rounded-md -top-8 text-surface flex items-center gap-1.5 shadow-header font-inter tracking-normal">
-                <span>Desarrollo web</span>
-                <PenTool size={16} />
-              </div>
+                  <div className="absolute -top-8 left-1 -rotate-3 whitespace-nowrap font-inter tracking-normal">
+                    <div className="relative flex items-center gap-1.5 rounded-md border-2 border-white bg-blue-200 py-1.5 px-5 text-xs font-semibold text-blue-900 shadow-tag outline-1 outline-base/10 sm:text-sm">
+                      <span className="absolute -left-3 flex size-8 -translate-y-1/2 items-center justify-center rounded-full border-2 border-white bg-blue text-white shadow-[0_2px_6px_rgb(23_23_23/0.18)]">
+                        <PenTool size={16} aria-hidden="true" />
+                      </span>
+                      <Paperclip className="absolute -top-3 left-16 size-5 -rotate-12 text-pink-500" aria-hidden="true" />
+                      <span>Desarrollo web</span>
+                    </div>
+                  </div>
               Proyectos
             </span>{" "}
             <span className="projects-reveal">que</span>{" "}

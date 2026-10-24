@@ -2,7 +2,8 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useRef } from "react";
-import { Briefcase, Calendar, Sparkles, ArrowUpRight } from "lucide-react";
+import type { CSSProperties } from "react";
+import { ArrowUpRight, Paperclip, UserStar } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -13,6 +14,61 @@ const ABOUT_HEADING_REVEAL = {
   duration: 0.8,
   stagger: 0.12,
   start: "top 75%",
+};
+
+const metrics = [
+  {
+    title: "Años de Experiencia",
+    value: "+2",
+    accent: "blue",
+    description:
+      "Diseñando y desarrollando experiencias digitales centradas en las personas.",
+  },
+  {
+    title: "Proyectos Desarrollados",
+    value: "13",
+    accent: "mint",
+    description:
+      "Proyectos creados para resolver necesidades reales con diseño y tecnología.",
+  },
+  {
+    title: "Clientes Satisfechos",
+    value: "+21",
+    accent: "coral",
+    description:
+      "Colaboraciones que transforman ideas en soluciones útiles y memorables.",
+  },
+] as const;
+
+type MetricCardProps = (typeof metrics)[number];
+
+const MetricCard = ({
+  title,
+  value,
+  accent,
+  description,
+}: MetricCardProps) => {
+  return (
+    <article
+      className={`about-note about-note--${accent} max-w-[360px] w-full`}
+      style={
+        {
+          "--note-rotation":
+            accent === "blue" ? "-2deg" : accent === "mint" ? "2deg" : "-1deg",
+        } as CSSProperties
+      }
+    >
+      <p className="text-5xl sm:text-6xl md:text-7xl font-semibold leading-none tracking-tight tabular-nums text-base">
+        {value}
+      </p>
+      <h3 className="mt-8 text-lg sm:text-xl font-semibold tracking-tight">
+        {title}
+      </h3>
+      <p className="mt-2 font-inter text-sm sm:text-base text-base/70 leading-relaxed">
+        {description}
+      </p>
+    </article>
+  );
 };
 
 export const About = () => {
@@ -96,103 +152,64 @@ export const About = () => {
     <section
       ref={sectionRef}
       id="sobremi"
-      className="w-full min-h-dvh bg-neutral-100 flex items-center justify-center py-16 sm:py-20 md:py-24 lg:py-28"
+      className="about-section w-full min-h-dvh bg-neutral-100 flex items-center justify-center py-16 sm:py-20 md:py-24 lg:py-28"
     >
       <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 md:px-8">
-        <div className="mb-10 sm:mb-14 md:mb-16 text-center">
+        <div className="mb-8 sm:mb-10 text-center">
           <h2 className="text-4xl xs:text-5xl sm:text-[54px] md:text-[64px] lg:text-7xl tracking-tight lg:tracking-normal leading-[1.15] lg:leading-none">
-            <span className="about-reveal inline-block relative">
-              <div className="absolute px-3 py-1.5 text-xs sm:text-sm bg-base rounded-md -top-8 left-1/2 -translate-x-1/2 text-surface flex items-center gap-1.5 shadow-header font-inter tracking-normal whitespace-nowrap">
-                <span>Sobre mí</span>
-                <Sparkles size={16} />
-              </div>
-              Quién
-            </span>{" "}
-            <span className="about-reveal">soy</span>{" "}
-            <span className="about-reveal about-reveal--tilted inline-block px-2 md:px-3 lg:px-4 lg:py-1 -mx-1 outline outline-base relative -rotate-2 bg-pink-100 text-pink">
-              <span className="size-2.5 outline outline-base absolute -left-1.5 -top-1.5 bg-pink"></span>
-              <span className="size-2.5 outline outline-base absolute -right-1.5 -top-1.5 bg-pink"></span>
-              <span className="size-2.5 outline outline-base absolute -left-1.5 -bottom-1.5 bg-pink"></span>
-              <span className="size-2.5 outline outline-base absolute -right-1.5 -bottom-1.5 bg-pink"></span>
+                <span className="process-reveal inline-block relative">
+                  <div className="absolute -top-8 left-1 -rotate-3 whitespace-nowrap font-inter tracking-normal">
+                    <div className="relative flex items-center gap-1.5 rounded-md border-2 border-white bg-blue-200 py-1.5 px-5 text-xs font-semibold text-blue-900 shadow-tag outline-1 outline-base/10 sm:text-sm">
+                      <span className="absolute -left-3 flex size-8 -translate-y-1/2 items-center justify-center rounded-full border-2 border-white bg-blue text-white shadow-[0_2px_6px_rgb(23_23_23/0.18)]">
+                        <UserStar size={16} aria-hidden="true" />
+                      </span>
+                      <Paperclip className="absolute -top-3 left-16 size-5 -rotate-12 text-blue-500" aria-hidden="true" />
+                      <span>Sobre mi</span>
+                    </div>
+                  </div>
+                  Quien
+                </span>{" "}
+            <span className="about-reveal">soy ?</span>{" "} <br />
+            <span className="about-reveal about-reveal--tilted inline-block px-2 md:px-3 lg:px-4 lg:py-1 -mx-1 outline outline-base relative -rotate-2 bg-coral-100 text-coral">
+              <span className="size-2.5 outline outline-base absolute -left-1.5 -top-1.5 bg-coral"></span>
+              <span className="size-2.5 outline outline-base absolute -right-1.5 -top-1.5 bg-coral"></span>
+              <span className="size-2.5 outline outline-base absolute -left-1.5 -bottom-1.5 bg-coral"></span>
+              <span className="size-2.5 outline outline-base absolute -right-1.5 -bottom-1.5 bg-coral"></span>
               Gabriel Fernández
             </span>
           </h2>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-10 items-start mb-10">
-          <div className="about-card-reveal">
-            <div className="relative rounded-2xl bg-surface shadow-card p-6 sm:p-8 h-full">
-              <p className="font-inter text-base sm:text-lg leading-relaxed text-base mb-6">
-                Diseñador UI/UX y desarrollador frontend con enfoque en crear
-                interfaces que no solo se ven bien, sino que{" "}
-                <span className="font-medium text-base">
-                  resuelven problemas reales
-                </span>
-                . Combino criterio visual con código limpio para transformar ideas
-                en experiencias digitales intuitivas, accesibles y memorables.
-              </p>
-              <p className="font-inter text-base sm:text-lg leading-relaxed text-body">
-                Me apasiona encontrar el equilibrio perfecto entre estética y
-                funcionalidad. Cada proyecto es una oportunidad para crear algo
-                único que conecte con usuarios y genere resultados tangibles para
-                quien lo necesita.
-              </p>
+        <div className="about-card-reveal mx-auto mb-10 max-w-3xl text-center">
+          <p className="font-inter text-base sm:text-lg leading-relaxed text-body mb-4">
+            Diseñador UI/UX y desarrollador frontend con enfoque en crear
+            interfaces que no solo se ven bien, sino que{" "}
+            <span className="text-base font-medium">
+              resuelven problemas reales
+            </span>
+            . Combino criterio visual con código limpio para transformar ideas
+            en{" "}
+            <span className="text-base font-medium">
+              experiencias digitales intuitivas, accesibles y memorables.
+            </span>
+          </p>
+        </div>
+
+        <div
+          className="about-grid about-canvas grid grid-cols-1 justify-items-center gap-6 sm:grid-cols-2 sm:gap-8 lg:grid-cols-3 mb-12 sm:mb-14"
+        >
+          {metrics.map((metric) => (
+            <div
+              className="about-card-reveal flex w-full justify-center"
+              key={metric.title}
+            >
+              <MetricCard {...metric} />
             </div>
-          </div>
-
-          <div className="about-grid grid sm:grid-cols-2 gap-4 sm:gap-5">
-            <article className="about-card-reveal">
-              <div className="relative h-full rounded-2xl bg-surface shadow-card p-5 sm:p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-card-hover motion-reduce:transition-none">
-                <div className="flex items-start justify-between mb-4">
-                  <div className="flex items-center justify-center size-11 rounded-xl bg-blue-50 text-blue-700 shadow-tag">
-                    <Briefcase className="size-5" />
-                  </div>
-                  <div className="px-2 py-0.5 rounded-full bg-blue-100 text-blue-700 text-xs font-medium font-inter">
-                    Pasantías
-                  </div>
-                </div>
-                <h3 className="text-lg sm:text-xl font-semibold tracking-tight mb-2">
-                  Soporte Técnico
-                </h3>
-                <div className="flex items-center gap-2 text-body font-inter text-sm mb-2">
-                  <Calendar className="size-4" />
-                  <span>3 meses</span>
-                </div>
-                <p className="font-inter text-sm text-body leading-relaxed">
-                  Resolución de incidencias, mantenimiento y atención a usuarios,
-                  desarrollando habilidades analíticas y de comunicación.
-                </p>
-              </div>
-            </article>
-
-            <article className="about-card-reveal">
-              <div className="relative h-full rounded-2xl bg-surface shadow-card p-5 sm:p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-card-hover motion-reduce:transition-none">
-                <div className="flex items-start justify-between mb-4">
-                  <div className="flex items-center justify-center size-11 rounded-xl bg-mint-50 text-mint-700 shadow-tag">
-                    <Briefcase className="size-5" />
-                  </div>
-                  <div className="px-2 py-0.5 rounded-full bg-mint-100 text-mint-700 text-xs font-medium font-inter">
-                    Trainee
-                  </div>
-                </div>
-                <h3 className="text-lg sm:text-xl font-semibold tracking-tight mb-2">
-                  Desarrollador Frontend
-                </h3>
-                <div className="flex items-center gap-2 text-body font-inter text-sm mb-2">
-                  <Calendar className="size-4" />
-                  <span>3 meses</span>
-                </div>
-                <p className="font-inter text-sm text-body leading-relaxed">
-                  Desarrollo con React, TypeScript y Tailwind CSS. Creación de
-                  componentes reutilizables y maquetado responsive.
-                </p>
-              </div>
-            </article>
-          </div>
+          ))}
         </div>
 
         <div className="about-cta-reveal text-center">
-          <div className="inline-flex flex-col sm:flex-row items-center gap-4 px-6 sm:px-8 py-4 sm:py-5 rounded-2xl bg-surface shadow-card">
+          <div className="inline-flex flex-col sm:flex-row items-center gap-4 px-6 sm:px-8 py-4 sm:py-5 rounded-2xl bg-yellow shadow-card">
             <div className="text-center sm:text-left">
               <p className="font-semibold text-lg sm:text-xl tracking-tight mb-1">
                 ¿Buscas talento que combine diseño y código?
