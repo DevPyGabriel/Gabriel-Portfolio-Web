@@ -40,8 +40,6 @@ export default function App() {
         wheelMultiplier: 0.8,
         // Suaviza el desplazamiento iniciado con la rueda del mouse.
         smoothWheel: true,
-        // Sincroniza el gesto táctil con el desplazamiento suave de Lenis.
-        syncTouch: true,
       });
 
       lenis.on("scroll", ScrollTrigger.update);
