@@ -30,12 +30,20 @@ const items: HeaderNavItem[] = [
     underlineClass: "bg-mint-500",
   },
   {
-    label: "Sobre mi",
-    href: "#sobremi",
+    label: "Proceso",
+    href: "#proceso",
     hoverClass: "hover:bg-pink-500 hover:text-base",
     activeClass: "bg-pink-500 text-base",
     focusClass: "focus-visible:outline-pink",
     underlineClass: "bg-pink-500",
+  },
+  {
+    label: "Sobre mi",
+    href: "#sobremi",
+    hoverClass: "hover:bg-yellow-500 hover:text-base",
+    activeClass: "bg-yellow-500 text-base",
+    focusClass: "focus-visible:outline-yellow",
+    underlineClass: "bg-yellow-500",
   },
   {
     label: "Contacto",
