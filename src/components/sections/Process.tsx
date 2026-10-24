@@ -2,7 +2,7 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useRef } from "react";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Paperclip, Workflow } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -19,28 +19,28 @@ const phases: Phase[] = [
     title: "Llamada de descubrimiento",
     description:
       "Conocemos tu proyecto, objetivos, público objetivo y necesidades. Identificamos el alcance, restricciones y qué éxito significa para ti.",
-    tone: "mint",
+    tone: "pink",
   },
   {
     number: "02",
     title: "Propuesta de solución",
     description:
       "Te presento una propuesta clara con estrategia, wireframes conceptuales, alcance, tiempos y presupuesto personalizado para tu proyecto.",
-    tone: "pink",
+    tone: "blue",
   },
   {
     number: "03",
     title: "Desarrollo de la propuesta",
     description:
       "Diseño y desarrollo iterativo con feedback constante. Creación de maquetas, componentes UI, y desarrollo frontend con enfoque en UX y performance.",
-    tone: "blue",
+    tone: "yellow",
   },
   {
     number: "04",
     title: "Entrega del proyecto",
     description:
       "Revisión final, ajustes, despliegue en producción, optimización y entrega de archivos/documentación. Te acompaño en el lanzamiento.",
-    tone: "yellow",
+    tone: "mint",
   },
 ];
 
@@ -146,12 +146,17 @@ export const Process = () => {
       <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 md:px-8 lg:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.1fr] gap-10 lg:gap-16 xl:gap-20 items-start">
           <div className="lg:sticky lg:top-32">
-            <div className="mb-6 sm:mb-8">
+            <div className="mb-0 xs:mb-2 sm:mb-4">
               <h2 className="text-4xl xs:text-5xl sm:text-[54px] md:text-[64px] lg:text-6xl xl:text-7xl tracking-tight lg:tracking-normal leading-[1.15] lg:leading-none">
                 <span className="process-reveal inline-block relative">
-                  <div className="absolute px-3 py-1.5 text-xs sm:text-sm bg-base rounded-md -top-8 left-0 text-surface flex items-center gap-1.5 shadow-header font-inter tracking-normal whitespace-nowrap">
-                    <span>Mi proceso</span>
-                    <ArrowRight size={16} />
+                  <div className="absolute -top-8 left-1 -rotate-3 whitespace-nowrap font-inter tracking-normal">
+                    <div className="relative flex items-center gap-1.5 rounded-md border-2 border-white bg-pink-200 py-1.5 px-5 text-xs font-semibold text-blue-900 shadow-tag outline outline-1 outline-base/10 sm:text-sm">
+                      <span className="absolute -left-3 flex size-8 -translate-y-1/2 items-center justify-center rounded-full border-2 border-white bg-pink text-white shadow-[0_2px_6px_rgb(23_23_23/0.18)]">
+                        <Workflow size={16} aria-hidden="true" />
+                      </span>
+                      <Paperclip className="absolute -top-3 left-16 size-5 -rotate-12 text-blue-500" aria-hidden="true" />
+                      <span>Mi proceso</span>
+                    </div>
                   </div>
                   Así trabajo
                 </span>{" "}
@@ -189,18 +194,18 @@ export const Process = () => {
                   }}
                 >
                   <div
-                    className={`relative min-h-[300px] flex flex-col rounded-2xl p-6 sm:p-8 text-base shadow-card transition-all duration-300 hover:shadow-card-hover motion-reduce:transition-none ${phaseToneClasses[phase.tone]}`}
+                    className={`relative min-h-75 flex flex-col rounded-2xl p-6 sm:p-8 text-base transition-all duration-300 motion-reduce:transition-none ${phaseToneClasses[phase.tone]}`}
                   >
                     <div className="flex-1">
                       <h3 className="mb-3 text-2xl font-semibold tracking-tight text-base sm:text-3xl">
                         {phase.title}
                       </h3>
-                      <p className="max-w-md font-inter text-base leading-relaxed text-base sm:text-lg">
+                      <p className="max-w-md font-inter text-base/70 leading-relaxed sm:text-lg">
                         {phase.description}
                       </p>
                     </div>
                     <div className="absolute bottom-4 right-6 sm:bottom-6 sm:right-8">
-                      <span className="font-inter text-6xl font-bold leading-none text-base sm:text-7xl lg:text-8xl">
+                      <span className="text-6xl font-bold leading-none text-base sm:text-7xl lg:text-8xl">
                         {phase.number}
                       </span>
                     </div>

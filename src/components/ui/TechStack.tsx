@@ -1,15 +1,17 @@
+"use client";
+
 import { useEffect, useRef, useState } from "react";
 import { Astro, Figma, React, TailwindCSS, TypeScript } from "./Assets";
 
-const technologies = [
+const logos = [
   { name: "Figma", Icon: Figma },
   { name: "React", Icon: React },
-  { name: "TypeScript", Icon: TypeScript },
   { name: "Tailwind CSS", Icon: TailwindCSS },
+  { name: "TypeScript", Icon: TypeScript },
   { name: "Astro", Icon: Astro },
 ];
 
-export const TechStack = () => {
+export default function LogoCloudBlock() {
   const viewportRef = useRef<HTMLDivElement>(null);
   const [isInView, setIsInView] = useState(true);
   const [isPageVisible, setIsPageVisible] = useState(
@@ -21,9 +23,7 @@ export const TechStack = () => {
 
   useEffect(() => {
     const viewport = viewportRef.current;
-    if (!viewport) return;
-
-    if (typeof IntersectionObserver === "undefined") return;
+    if (!viewport || typeof IntersectionObserver === "undefined") return;
 
     const observer = new IntersectionObserver(
       ([entry]) => setIsInView(entry.isIntersecting),
@@ -63,7 +63,7 @@ export const TechStack = () => {
     <div
       role="group"
       aria-label="Tecnologías y herramientas"
-      className="tech-stack py-8 md:py-10 lg:py-12 w-screen max-w-full"
+      className="tech-stack w-screen max-w-full py-8 md:py-10 lg:py-12"
     >
       <div
         ref={viewportRef}
@@ -73,12 +73,13 @@ export const TechStack = () => {
       >
         <div className="tech-stack__track" aria-hidden="true">
           {[0, 1].map((copy) => (
-            <ul
-              key={copy}
-              className="tech-stack__group"
-            >
-              {technologies.map(({ name, Icon }) => (
-                <li key={name} className="tech-stack__item">
+            <ul className="tech-stack__group" key={copy}>
+              {logos.map(({ name, Icon }) => (
+                <li
+                  className="tech-stack__item"
+                  key={name}
+                  aria-hidden={copy === 1}
+                >
                   <Icon
                     className={`tech-stack__icon ${
                       name === "Astro" ? "tech-stack__icon--astro" : ""
@@ -93,10 +94,10 @@ export const TechStack = () => {
         </div>
       </div>
       <ul className="sr-only">
-        {technologies.map(({ name }) => (
+        {logos.map(({ name }) => (
           <li key={name}>{name}</li>
         ))}
       </ul>
     </div>
   );
-};
+}
