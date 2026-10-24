@@ -3,7 +3,7 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { useRef } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { TechStack } from "../ui/TechStack";
+import LogoCloudBlock from "../ui/TechStachRework";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -134,10 +134,17 @@ export const Hero = () => {
             );
         });
 
-        gsap.from(".hero-shape, .hero-role", {
+        gsap.from(".hero-reveal, .tech-stack", {
+          autoAlpha: 0,
+          y: 32,
+          stagger: 0.12,
+          duration: 0.8,
+          ease: "power3.out",
+        });
+
+        gsap.from(".hero-shape", {
           autoAlpha: 0,
           scale: 0.5,
-          stagger: 0.14,
           duration: 0.8,
           ease: "back.out(1.7)",
         });
@@ -165,9 +172,9 @@ export const Hero = () => {
       id="inicio"
     >
       <div className="flex w-full max-w-300 flex-col mx-auto gap-5 px-4 md:gap-6 items-center font-[450] lg:font-normal">
-        <div className="flex px-6 py-2 bg-surface w-fit font-inter items-center gap-3 rounded-full shadow-tag">
+        <div className="hero-reveal flex px-6 py-2 bg-surface w-fit font-inter items-center gap-3 rounded-full shadow-tag">
           <span className="relative flex size-3">
-            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-mint opacity-75"></span>
+            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-mint opacity-75 motion-reduce:animate-none"></span>
             <span className="relative inline-flex size-3 rounded-full bg-mint"></span>
           </span>
           <span>Disponible para trabajar</span>
@@ -199,7 +206,7 @@ export const Hero = () => {
           <span
             ref={roleRef}
             aria-hidden="true"
-            className={`hero-role ${roles[1].class} inline-block overflow-hidden rounded-xl px-4 py-1 text-center text-5xl xs:text-6xl sm:text-[54px] md:text-[64px] lg:text-[92px] sm:py-2`}
+            className={`hero-reveal hero-role ${roles[1].class} inline-block overflow-hidden rounded-xl px-4 py-1 text-center text-5xl xs:text-6xl sm:text-[54px] md:text-[64px] lg:text-[92px] sm:py-2`}
           >
             <span ref={roleTextRef} className="inline-block">
               {roles[1].name}
@@ -210,13 +217,13 @@ export const Hero = () => {
           </span>
         </h1>
 
-        <div className="max-w-86 xs:max-w-sm sm:max-w-lg md:max-w-2xl text-center pt-4 pb-3 text-body font-inter font-normal">
-          <p className="text-pretty">
+        <div className="hero-reveal max-w-86 xs:max-w-sm sm:max-w-lg md:max-w-2xl text-center pt-4 pb-3 text-body font-inter font-normal">
+          <p id="description" className="text-pretty">
             Combino <span className="text-base font-medium">desarrollo web y criterio de UI/UX</span> para crear interfaces intuitivas, atractivas y funcionales, cuidando tanto los detalles visuales como la <span className="text-base font-medium">experiencia de cada usuario.</span>
           </p>
         </div>
 
-        <div className="flex items-center gap-4 font-inter tracking-[-0.01em]">
+        <div className="hero-reveal flex items-center gap-4 font-inter tracking-[-0.01em]">
           <a
             href=""
             className="px-4 py-2 sm:px-5 sm:py-2.5 bg-yellow text-base rounded-full md:text-lg font-medium outline-2 outline-transparent outline-offset-2 transition-all duration-200 hover:outline-yellow hover:scale-105"
@@ -230,7 +237,7 @@ export const Hero = () => {
             Ver proyectos
           </a>
         </div>
-        <TechStack />
+        <LogoCloudBlock />
       </div>
     </section>
   );

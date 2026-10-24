@@ -110,15 +110,13 @@ const projects: Project[] = [
   },
 ];
 
-const PROJECT_REVEAL = {
-  // Ajusta el recorrido, el inicio y el final para controlar cómo responde al scroll.
-  y: -100,
-  x: -24,
-  rotation: -16,
-  opacity: 0,
-  scrub: true,
+const PROJECT_HEADING_REVEAL = {
+  y: 36,
+  x: -12,
+  rotation: -6,
+  duration: 0.8,
+  stagger: 0.12,
   start: "top 75%",
-  end: "top 25%",
 };
 
 const PROJECT_CARD_HOVER =
@@ -175,7 +173,7 @@ export const Projects = () => {
     dialogRef.current?.close();
   };
 
-  // Anima el título y las tarjetas al entrar en viewport; respeta movimiento reducido.
+  // Anima el título al entrar en viewport y las tarjetas durante el scroll.
   useGSAP(
     () => {
       const section = sectionRef.current;
@@ -183,40 +181,39 @@ export const Projects = () => {
 
       const motion = gsap.matchMedia();
       motion.add("(prefers-reduced-motion: no-preference)", () => {
-        // scrub vincula el progreso de cada bloque al tramo entre start y end; al subir, revierte.
-        // Añade `projects-reveal` a cualquier bloque nuevo que deba animarse.
-        gsap.utils
-          .toArray<HTMLElement>(".projects-reveal", section)
-          .forEach((block) => {
-            const finalRotation = block.classList.contains(
-              "projects-reveal--tilted",
-            )
-              ? -5
-              : 0;
+        const heading = section.querySelector("h4");
+        if (heading) {
+          const headingParts =
+            gsap.utils.toArray<HTMLElement>(".projects-reveal", heading);
 
-            gsap.fromTo(
-              block,
-              {
-                autoAlpha: PROJECT_REVEAL.opacity,
-                y: PROJECT_REVEAL.y,
-                x: PROJECT_REVEAL.x,
-                rotation: PROJECT_REVEAL.rotation,
+          gsap.fromTo(
+            headingParts,
+            {
+              autoAlpha: 0,
+              y: PROJECT_HEADING_REVEAL.y,
+              x: PROJECT_HEADING_REVEAL.x,
+              rotation: PROJECT_HEADING_REVEAL.rotation,
+            },
+            {
+              autoAlpha: 1,
+              y: 0,
+              x: 0,
+              rotation: (_index, element) =>
+                element.classList.contains("projects-reveal--tilted")
+                  ? -5
+                  : 0,
+              duration: PROJECT_HEADING_REVEAL.duration,
+              stagger: PROJECT_HEADING_REVEAL.stagger,
+              ease: "power3.out",
+              scrollTrigger: {
+                trigger: heading,
+                start: PROJECT_HEADING_REVEAL.start,
+                toggleActions: "play none none none",
+                once: true,
               },
-              {
-                autoAlpha: 1,
-                y: 0,
-                x: 0,
-                rotation: finalRotation,
-                ease: "back.out",
-                scrollTrigger: {
-                  trigger: block,
-                  start: PROJECT_REVEAL.start,
-                  end: PROJECT_REVEAL.end,
-                  scrub: PROJECT_REVEAL.scrub,
-                },
-              },
-            );
-          });
+            },
+          );
+        }
 
         gsap.utils
           .toArray<HTMLElement>(".project-card-reveal", section)

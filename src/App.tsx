@@ -30,20 +30,17 @@ export default function App() {
       if (lenis) return;
 
       lenis = new Lenis({
-        // Duración de la animación de desplazamiento, en segundos.
-        duration: 1.8,
-        // Curva de aceleración y desaceleración; t representa el progreso de 0 a 1.
-        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        
+        autoRaf: true,
+        anchors: true,
+        respectReducedMotion: true,
+        lerp: 0.05,
         // Multiplicador de la distancia recibida de la rueda del mouse.
-        wheelMultiplier: 0.75,
-        // Multiplicador de la distancia recibida de gestos táctiles.
-        touchMultiplier: 1.1,
+        wheelMultiplier: 0.8,
         // Suaviza el desplazamiento iniciado con la rueda del mouse.
         smoothWheel: true,
         // Sincroniza el gesto táctil con el desplazamiento suave de Lenis.
         syncTouch: true,
-        // Intensidad de interpolación para el desplazamiento táctil sincronizado (0 a 1).
-        syncTouchLerp: 0.075,
       });
 
       lenis.on("scroll", ScrollTrigger.update);

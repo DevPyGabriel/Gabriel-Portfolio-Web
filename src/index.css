@@ -155,14 +155,15 @@ html {
   animation-play-state: running;
 }
 
+.tech-stack__viewport:hover .tech-stack__track {
+  animation-play-state: paused;
+}
+
 .tech-stack__group {
   display: flex;
-  width: max(100vw, 48rem);
+  width: max-content;
   flex: none;
   align-items: center;
-  justify-content: space-between;
-  gap: clamp(1.25rem, 2.5vw, 2.5rem);
-  padding-inline: clamp(1.5rem, 4vw, 3.5rem);
 }
 
 .tech-stack__item {
@@ -170,11 +171,17 @@ html {
   flex: none;
   align-items: center;
   gap: 0.75rem;
+  padding-inline: clamp(1.25rem, 3vw, 2rem);
   color: var(--color-body);
   font-family: var(--font-inter);
   font-size: 1.0625rem;
   font-weight: 500;
   white-space: nowrap;
+  transition: color 200ms;
+}
+
+.tech-stack__item:hover {
+  color: var(--color-base);
 }
 
 .tech-stack__icon {
@@ -212,7 +219,6 @@ html {
   .tech-stack__group {
     width: max-content;
     min-width: 100%;
-    padding-right: 2rem;
   }
 
   .tech-stack__group + .tech-stack__group {
