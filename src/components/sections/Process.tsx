@@ -2,7 +2,7 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useRef } from "react";
-import { ArrowRight, Paperclip, Workflow } from "lucide-react";
+import { Paperclip, Workflow } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
