@@ -164,26 +164,78 @@ export const HeroShape = forwardRef<SVGSVGElement, IconProps>(
 
 export const CardVector1 = forwardRef<SVGSVGElement, IconProps>(
   function CardVector1(
-    {
-      stroke = "9",
-      color = "currentColor",
-      ...props
-    },
+    { stroke = "18", color = "currentColor", ...props },
+    ref,
   ) {
     return (
       <svg
-        width="69"
-        height="129"
-        viewBox="0 0 69 129"
+        ref={ref}
+        width="290"
+        height="293"
+        viewBox="0 0 290 293"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
         {...props}
       >
         <path
-          d="M10.0743 135.316C0.702768 121.786 3.59602 100.44 15.3888 90.2199C23.7747 82.9525 38.0245 78.9608 47.5756 81.663M47.5756 81.663C51.4559 82.7608 54.5606 84.9634 56.1816 88.5C61.6816 100.5 47.9576 110.624 41.0571 104.936C34.6387 99.6462 40.2832 91.4538 47.5756 81.663ZM47.5756 81.663C56.0481 70.288 66.745 56.7556 63.3332 43.1108C61.7266 36.6855 56.1634 32.7971 50.0221 31.2526M50.0221 31.2526C43.9169 29.7172 37.2404 30.4981 33.3114 33.4056C23.7096 40.5109 31.1816 51 41.0571 46.5C47.226 43.689 49.8077 37.9075 50.0221 31.2526ZM50.0221 31.2526C50.4897 16.7341 39.6899 -1.9417 30.2897 -3"
-          stroke-width={stroke}
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          d="M9.27389 267.727C5.58945 109.636 39.1575 8.83016 105.908 9.00021C124.342 9.04556 141.449 19.2146 152.037 34.3038C177.477 70.536 182.669 186.239 177.67 236.041C171.333 299.118 92.6556 302.395 96.0339 223.253C96.8728 203.618 104.264 184.799 114.581 168.055C149.078 112.04 214.832 73.0301 280.029 81.782"
+          strokeWidth={stroke}
+          strokeMiterlimit="10"
+          strokeLinecap="round"
+          stroke={color}
+        />
+      </svg>
+    );
+  },
+);
+
+export const CardVector2 = forwardRef<SVGSVGElement, IconProps>(
+  function CardVector2(
+    { stroke = "18", color = "currentColor", ...props },
+    ref,
+  ) {
+    return (
+      <svg
+        ref={ref}
+        width="230"
+        height="295"
+        viewBox="0 0 230 295"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        {...props}
+      >
+        <path
+          d="M174.048 44.1905C163.924 32.8424 153.415 21.7211 140.185 15.4859C113.578 2.40331 80.4857 10.0556 59.6602 30.2236C-19.3909 106.747 12.3746 226.122 33.6309 256.766C67.1196 305.015 122.443 286.831 146.636 244.998C158.12 225.873 165.069 201.794 157.564 180.311C148.279 154.882 121.287 155.245 115.38 181.32C108.488 217.019 135.707 254.419 169.74 263.67C186.303 268.499 203.557 265.268 220.018 261.448"
+          strokeWidth={stroke}
+          strokeMiterlimit="10"
+          strokeLinecap="round"
+          stroke={color}
+        />
+      </svg>
+    );
+  },
+);
+
+export const CardVector3 = forwardRef<SVGSVGElement, IconProps>(
+  function CardVector3(
+    { stroke = "18", color = "currentColor", ...props },
+    ref,
+  ) {
+    return (
+      <svg
+        ref={ref}
+        width="249"
+        height="282"
+        viewBox="0 0 249 282"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        {...props}
+      >
+        <path
+          d="M9 186.012C9 32.5124 75.6373 9 96.6102 9C208.243 9 205.091 295.275 123.365 271.389C48.9053 249.633 105.045 124.238 195.172 173.315C246.255 201.124 239.623 243.988 238.739 269.246"
+          strokeWidth={stroke}
+          strokeMiterlimit="10"
+          strokeLinecap="round"
           stroke={color}
         />
       </svg>
