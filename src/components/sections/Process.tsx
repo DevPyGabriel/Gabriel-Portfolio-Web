@@ -141,12 +141,12 @@ export const Process = () => {
     <section
       ref={sectionRef}
       id="proceso"
-      className="w-full min-h-dvh bg-neutral-100 flex items-center justify-center py-20 sm:py-24 md:py-28 lg:py-48"
+      className="w-full min-h-dvh bg-canvas flex items-center justify-center py-20 sm:py-24 md:py-28 lg:py-48"
     >
       <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 md:px-8 lg:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.1fr] gap-10 lg:gap-16 xl:gap-20 items-start">
           <div className="lg:sticky lg:top-32">
-            <div className="mb-0 xs:mb-2 sm:mb-4">
+            <div id="process-heading" className="mb-0 xs:mb-2 sm:mb-4">
               <h2 className="text-4xl xs:text-5xl sm:text-[54px] md:text-[64px] lg:text-6xl xl:text-7xl tracking-tight lg:tracking-normal leading-[1.15] lg:leading-none">
                 <span className="process-reveal inline-block relative">
                   <div className="absolute -top-8 left-1 -rotate-3 whitespace-nowrap font-inter tracking-normal">

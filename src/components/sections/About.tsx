@@ -239,7 +239,7 @@ export const About = () => {
     <section
       ref={sectionRef}
       id="sobremi"
-      className="about-section w-full min-h-dvh bg-neutral-100 flex items-center justify-center py-16 sm:py-20 md:py-24 lg:py-28"
+      className="about-section w-full min-h-dvh bg-canvas flex items-center justify-center py-16 sm:py-20 md:py-24 lg:py-28"
     >
       <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 md:px-8">
         <div className="mb-8 sm:mb-10 text-center">
@@ -260,11 +260,11 @@ export const About = () => {
               <span className="about-reveal inline-block">Quien</span>
             </span>{" "}
             <span className="about-reveal">soy ?</span> <br />
-            <span className="about-reveal about-reveal--tilted inline-block px-2 md:px-3 lg:px-4 lg:py-1 -mx-1 outline outline-base relative -rotate-2 bg-coral-100 text-coral">
-              <span className="size-2.5 outline outline-base absolute -left-1.5 -top-1.5 bg-coral"></span>
-              <span className="size-2.5 outline outline-base absolute -right-1.5 -top-1.5 bg-coral"></span>
-              <span className="size-2.5 outline outline-base absolute -left-1.5 -bottom-1.5 bg-coral"></span>
-              <span className="size-2.5 outline outline-base absolute -right-1.5 -bottom-1.5 bg-coral"></span>
+            <span className="about-reveal about-reveal--tilted inline-block px-2 md:px-3 lg:px-4 lg:py-1 -mx-1 outline outline-base relative -rotate-2 bg-pink-100 text-pink">
+              <span className="size-2.5 outline outline-base absolute -left-1.5 -top-1.5 bg-pink"></span>
+              <span className="size-2.5 outline outline-base absolute -right-1.5 -top-1.5 bg-pink"></span>
+              <span className="size-2.5 outline outline-base absolute -left-1.5 -bottom-1.5 bg-pink"></span>
+              <span className="size-2.5 outline outline-base absolute -right-1.5 -bottom-1.5 bg-pink"></span>
               Gabriel Fernández
             </span>
           </h2>
@@ -299,12 +299,12 @@ export const About = () => {
         </div>
 
         <div className="about-cta-reveal text-center">
-          <div className="inline-flex flex-col sm:flex-row items-center gap-4 px-6 sm:px-8 py-4 sm:py-5 rounded-2xl bg-coral-400">
+          <div className="inline-flex flex-col sm:flex-row items-center gap-4 px-6 sm:px-8 py-4 sm:py-5 rounded-2xl bg-blue-400">
             <div className="text-center sm:text-left">
               <p className="font-semibold text-lg sm:text-xl tracking-tight mb-1">
                 ¿Buscas talento que combine diseño y código?
               </p>
-              <p className="font-inter text-sm sm:text-base text-body">
+              <p className="font-inter text-sm text-base">
                 Estoy listo para aportar valor a tu equipo
               </p>
             </div>

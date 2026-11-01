@@ -7,6 +7,8 @@ import { Header } from "./components/layout/Header"
 import { Projects } from "./components/sections/Projects";
 import { Process } from "./components/sections/Process";
 import { About } from "./components/sections/About";
+import { Services } from "./components/sections/Services";
+import { Faq } from "./components/sections/Faq";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -70,8 +72,10 @@ export default function App() {
       <main>
         <Hero />
         <Projects />
+        <Services />
         <Process />
         <About />
+        <Faq />
       </main>
     </div>
   );

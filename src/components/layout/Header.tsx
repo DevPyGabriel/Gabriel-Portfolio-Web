@@ -16,7 +16,7 @@ const items: HeaderNavItem[] = [
   {
     label: "Inicio",
     href: "#inicio",
-    hoverClass: "hover:bg-blue-500 hover:text-base",
+    hoverClass: "hover:text-base",
     activeClass: "text-base",
     focusClass: "focus-visible:outline-blue",
     underlineClass: "bg-blue-500",
@@ -24,7 +24,7 @@ const items: HeaderNavItem[] = [
   {
     label: "Proyectos",
     href: "#proyectos",
-    hoverClass: "hover:bg-mint-500 hover:text-base",
+    hoverClass: "hover:text-base",
     activeClass: "text-base",
     focusClass: "focus-visible:outline-mint",
     underlineClass: "bg-mint-500",
@@ -32,7 +32,7 @@ const items: HeaderNavItem[] = [
   {
     label: "Proceso",
     href: "#proceso",
-    hoverClass: "hover:bg-pink-500 hover:text-base",
+    hoverClass: "hover:text-base",
     activeClass: "text-base",
     focusClass: "focus-visible:outline-pink",
     underlineClass: "bg-pink-500",
@@ -40,18 +40,26 @@ const items: HeaderNavItem[] = [
   {
     label: "Sobre mi",
     href: "#sobremi",
-    hoverClass: "hover:bg-yellow-500 hover:text-base",
+    hoverClass: "hover:text-base",
     activeClass: "text-base",
     focusClass: "focus-visible:outline-yellow",
     underlineClass: "bg-yellow-500",
   },
   {
-    label: "Contacto",
-    href: "#contacto",
-    hoverClass: "hover:bg-coral-500 hover:text-base",
+    label: "Faq",
+    href: "#faq",
+    hoverClass: "hover:text-base",
     activeClass: "text-base",
     focusClass: "focus-visible:outline-coral",
     underlineClass: "bg-coral-500",
+  },
+  {
+    label: "Contacto",
+    href: "#contacto",
+    hoverClass: "hover:text-base",
+    activeClass: "text-base",
+    focusClass: "focus-visible:outline-blue",
+    underlineClass: "bg-blue-500",
   },
 ];
 
@@ -218,17 +226,19 @@ export const Header = () => {
                   href={item.href}
                   aria-current={index === activeIndex ? "location" : undefined}
                   onClick={handleNavigate}
-                  className={`relative block rounded-lg px-2 py-1.5 outline-none transition-colors duration-200 ${item.hoverClass} ${item.focusClass} focus-visible:outline-2 focus-visible:outline-offset-2 ${
+                  className={`group relative block rounded-lg px-2 py-1.5 outline-none transition-colors duration-200 ${item.hoverClass} ${item.focusClass} focus-visible:outline-2 focus-visible:outline-offset-2 ${
                     index === activeIndex ? item.activeClass : "text-base"
                   }`}
                 >
                   {item.label}
-                  {index === activeIndex && (
-                    <span
-                      aria-hidden="true"
-                      className={`absolute inset-x-4 bottom-1 h-0.5 rounded-full ${item.underlineClass}`}
-                    />
-                  )}
+                  <span
+                    aria-hidden="true"
+                    className={`absolute inset-x-2 bottom-1 h-0.5 origin-left rounded-full transition-transform duration-300 ease-out motion-reduce:transition-none ${item.underlineClass} ${
+                      index === activeIndex
+                        ? "scale-x-100"
+                        : "scale-x-0 group-hover:scale-x-100 group-focus-visible:scale-x-100"
+                    }`}
+                  />
                 </a>
               </li>
             ))}
@@ -283,7 +293,7 @@ export const Header = () => {
                       {item.label}
                       <span
                         aria-hidden="true"
-                        className={`absolute inset-x-4 bottom-2 h-0.5 origin-left rounded-full transition-transform duration-200 motion-reduce:transition-none ${item.underlineClass} ${
+                        className={`absolute inset-x-4 bottom-2 h-0.5 origin-left rounded-full transition-transform duration-300 ease-out motion-reduce:transition-none ${item.underlineClass} ${
                           index === activeIndex
                             ? "scale-x-100"
                             : "scale-x-0 group-hover:scale-x-100 group-focus-visible:scale-x-100"

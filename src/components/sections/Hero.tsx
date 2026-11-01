@@ -1,9 +1,10 @@
-import { HeroShape } from "../ui/Assets";
+import { GithubIcon, HeroShape } from "../ui/Assets";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { useRef } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import LogoCloudBlock from "../ui/TechStack";
+import { ArrowDownToLine, FolderKanban } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -168,7 +169,7 @@ export const Hero = () => {
   return (
     <section
       ref={sectionRef}
-      className="min-h-screen w-full bg-neutral-100 flex items-center pt-26"
+      className="min-h-screen w-full bg-canvas flex items-center pt-26"
       id="inicio"
     >
       <div className="flex w-full max-w-300 flex-col mx-auto gap-5 px-4 md:gap-6 items-center font-[450] lg:font-normal">
@@ -223,18 +224,39 @@ export const Hero = () => {
           </p>
         </div>
 
-        <div className="hero-reveal flex items-center gap-4 font-inter tracking-[-0.01em]">
+        <div className="hero-reveal flex flex-wrap items-center justify-center gap-3 font-inter tracking-[-0.01em]">
           <a
             href=""
-            className="px-4 py-2 sm:px-5 sm:py-2.5 bg-yellow text-base rounded-full md:text-lg font-medium outline-2 outline-transparent outline-offset-2 transition-all duration-200 hover:outline-yellow hover:scale-105"
+            download
+            className="inline-flex items-center gap-2 px-6 py-2.5 bg-yellow text-base rounded-full sm:px-7 md:px-8 md:text-lg font-medium outline-2 outline-transparent outline-offset-2 transition-all duration-200 hover:outline-yellow hover:scale-105"
           >
+            <ArrowDownToLine className="size-4 sm:size-5" aria-hidden="true" />
             Descargar CV
           </a>
           <a
-            href=""
-            className="px-4 py-2 sm:px-5 sm:py-2.5 bg-base text-surface rounded-full md:text-lg outline-2 outline-transparent outline-offset-2 transition-all duration-200 hover:outline-base hover:scale-105"
+            href="#proyectos"
+            className="inline-flex items-center gap-2 px-6 py-2.5 bg-pink text-base rounded-full sm:px-7 md:px-8 md:text-lg outline-2 outline-transparent outline-offset-2 transition-all duration-200 hover:outline-pink hover:scale-105 font-medium"
           >
+            <FolderKanban className="size-4 sm:size-5" aria-hidden="true" />
             Ver proyectos
+          </a>
+          <a
+            href="https://www.linkedin.com/in/gabriel-co-fernandez/"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Abrir perfil de LinkedIn"
+            className="inline-flex size-11 items-center justify-center rounded-full bg-blue text-white outline-2 outline-transparent outline-offset-2 transition-all duration-200 hover:outline-blue hover:scale-105 sm:size-12"
+          >
+            <span className="text-lg font-bold font-inter" aria-hidden="true">in</span>
+          </a>
+          <a
+            href="https://github.com/DevPyGabriel"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Abrir perfil de GitHub"
+            className="inline-flex size-11 items-center justify-center rounded-full bg-base text-surface outline-2 outline-transparent outline-offset-2 transition-all duration-200 hover:outline-base hover:scale-105 sm:size-12"
+          >
+            <GithubIcon size={22} aria-hidden="true" />
           </a>
         </div>
         <LogoCloudBlock />
