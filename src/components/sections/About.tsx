@@ -129,12 +129,12 @@ const MetricCard = ({
         </div>
       </div>
       <p
-        className={`text-5xl sm:text-6xl md:text-7xl font-semibold leading-none tracking-tight tabular-nums text-base z-20`}
+        className={`text-5xl sm:text-6xl md:text-7xl font-semibold leading-none tracking-tighter tabular-nums text-base z-20`}
       >
         {value}
       </p>
       <div className="flex flex-col gap-2 z-20">
-        <h3 className={`text-lg sm:text-xl font-semibold tracking-tight`}>
+        <h3 className={`text-lg sm:text-xl font-semibold tracking-tighter`}>
           {title}
         </h3>
         <p className="font-inter text-sm text-body leading-relaxed">
@@ -243,7 +243,7 @@ export const About = () => {
     >
       <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 md:px-8">
         <div className="mb-8 sm:mb-10 text-center">
-          <h2 className="text-4xl xs:text-5xl sm:text-[54px] md:text-[64px] lg:text-7xl tracking-tight lg:tracking-normal leading-[1.15] lg:leading-none">
+          <h2 className="text-4xl xs:text-5xl sm:text-[54px] md:text-[64px] lg:text-7xl tracking-tighter leading-[1.15] lg:leading-none">
             <span className="process-reveal inline-block relative">
               <div className="absolute -top-8 left-1 -rotate-3 whitespace-nowrap font-inter tracking-normal">
                 <div className="relative flex items-center gap-1.5 rounded-md border-2 border-white bg-yellow-200 py-1.5 px-5 text-xs font-semibold text-blue-900 shadow-tag outline-1 outline-base/10 sm:text-sm">

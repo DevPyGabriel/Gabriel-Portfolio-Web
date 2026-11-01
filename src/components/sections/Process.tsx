@@ -147,7 +147,7 @@ export const Process = () => {
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.1fr] gap-10 lg:gap-16 xl:gap-20 items-start">
           <div className="lg:sticky lg:top-32">
             <div id="process-heading" className="mb-0 xs:mb-2 sm:mb-4">
-              <h2 className="text-4xl xs:text-5xl sm:text-[54px] md:text-[64px] lg:text-6xl xl:text-7xl tracking-tight lg:tracking-normal leading-[1.15] lg:leading-none">
+              <h2 className="text-4xl xs:text-5xl sm:text-[54px] md:text-[64px] lg:text-6xl xl:text-7xl tracking-tighter leading-[1.15] lg:leading-none">
                 <span className="process-reveal inline-block relative">
                   <div className="absolute -top-8 left-1 -rotate-3 whitespace-nowrap font-inter tracking-normal">
                     <div className="relative flex items-center gap-1.5 rounded-md border-2 border-white bg-pink-200 py-1.5 px-5 text-xs font-semibold text-blue-900 shadow-tag outline-1 outline-base/10 sm:text-sm">
@@ -197,7 +197,7 @@ export const Process = () => {
                     className={`relative min-h-75 flex flex-col rounded-2xl p-6 sm:p-8 text-base transition-all duration-300 motion-reduce:transition-none ${phaseToneClasses[phase.tone]}`}
                   >
                     <div className="flex-1">
-                      <h3 className="mb-3 text-2xl font-semibold tracking-tight text-base sm:text-3xl">
+                      <h3 className="mb-3 text-2xl font-semibold tracking-tighter text-base sm:text-3xl">
                         {phase.title}
                       </h3>
                       <p className="max-w-md font-inter text-base/70 leading-relaxed sm:text-lg">

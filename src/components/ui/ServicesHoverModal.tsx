@@ -217,7 +217,7 @@ export const ServicesHoverModal = () => {
     >
       <div className="mx-auto w-full max-w-7xl px-5 sm:px-8 md:px-12">
         <div className="mb-10 grid gap-6 md:grid-cols-[1fr_auto] md:items-end md:gap-8 lg:mb-14">
-          <h2 className="text-4xl leading-[1.15] xs:text-5xl sm:text-[54px] md:text-[64px] lg:text-6xl xl:text-7xl lg:leading-none tracking-tight">
+          <h2 className="text-4xl leading-[1.15] xs:text-5xl sm:text-[54px] md:text-[64px] lg:text-6xl xl:text-7xl lg:leading-none tracking-tighter">
             <span className="services-reveal inline-block relative">
               <span className="absolute -top-8 left-1 -rotate-3 whitespace-nowrap font-inter tracking-normal">
                 <span className="relative flex items-center gap-1.5 rounded-md border-2 border-white bg-yellow-200 py-1.5 px-5 text-xs font-semibold shadow-tag outline-1 outline-base/10 sm:text-sm text-base">
@@ -270,7 +270,7 @@ export const ServicesHoverModal = () => {
                   >
                     <Icon className="size-6 sm:size-8" strokeWidth={1.8} />
                   </span>
-                  <h3 className="font-bricolage text-2xl leading-tight tracking-tight font-[450] transition-transform duration-300 group-hover:translate-x-2 xs:text-3xl sm:text-4xl lg:text-6xl lg:leading-none">
+                  <h3 className="font-bricolage text-2xl leading-tight tracking-tighter font-[450] transition-transform duration-300 group-hover:translate-x-2 xs:text-3xl sm:text-4xl lg:text-6xl lg:leading-none">
                     {service.title}
                   </h3>
                 </div>

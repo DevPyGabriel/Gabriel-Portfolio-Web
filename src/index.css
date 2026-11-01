@@ -17,6 +17,15 @@
 @import "lenis/dist/lenis.css";
 @import "tailwindcss";
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  letter-spacing: -0.05em;
+}
+
 @theme {
   --font-inter: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
   --font-bricolage: "Bricolage Grotesque Variable", ui-sans-serif, system-ui, sans-serif;
@@ -140,7 +149,8 @@ body {
 }
 
 .about-section,
-.faq-section {
+.faq-section,
+.contact-section {
   --about-grid-color: rgba(0, 182, 255, 0.15);
   --about-grid-size: 128px;
   background-image:

@@ -267,7 +267,7 @@ export const Projects = () => {
       <div className="mx-auto my-12 sm:my-16 md:my-20 lg:my-24">
         <div className="px-4 sm:px-6 md:px-12 lg:max-w-5xl h-full flex flex-col">
           {/* Encabezado: edita aquí el texto y la composición del título de la sección. */}
-          <h4 className="text-center text-5xl xs:text-6xl sm:text-[54px] md:text-[64px] lg:text-8xl tracking-tight lg:tracking-normal text-surface leading-[1.2] lg:leading-none lg:max-w-full pb-12 sm:pb-14 md:pb-16 lg:pb-20 xl:pb-24">
+          <h4 className="text-center text-5xl xs:text-6xl sm:text-[54px] md:text-[64px] lg:text-8xl tracking-tighter text-surface leading-[1.2] lg:leading-none lg:max-w-full pb-12 sm:pb-14 md:pb-16 lg:pb-20 xl:pb-24">
             <span className="projects-reveal inline-block relative">
                   <div className="absolute -top-8 left-1 -rotate-3 whitespace-nowrap font-inter tracking-normal">
                     <div className="relative flex items-center gap-1.5 rounded-md border-2 border-white bg-blue-200 py-1.5 px-5 text-xs font-semibold text-blue-900 shadow-tag outline-1 outline-base/10 sm:text-sm">
@@ -343,7 +343,7 @@ export const Projects = () => {
                   </div>
                   <div className="flex w-full flex-col gap-2">
                     <div className="flex items-center justify-between gap-3">
-                      <h5 className="text-2xl font-medium tracking-tight">
+                      <h5 className="text-2xl font-medium tracking-tighter">
                         {project.name}
                       </h5>
                       <span className="rounded-md bg-blue-200 px-2 py-1 font-inter text-sm text-blue-700">
@@ -433,7 +433,7 @@ export const Projects = () => {
               <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
                 <h2
                   id="project-dialog-title"
-                  className="text-3xl font-semibold tracking-tight sm:text-4xl"
+                  className="text-3xl font-semibold tracking-tighter sm:text-4xl"
                 >
                   {selectedProject.name}
                 </h2>

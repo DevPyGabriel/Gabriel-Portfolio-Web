@@ -181,7 +181,7 @@ export const Hero = () => {
           <span>Disponible para trabajar</span>
         </div>
 
-        <h2 className="flex flex-col sm:flex-row items-center gap-5 md:gap-6 text-5xl xs:text-6xl sm:text-[54px] md:text-[64px] lg:text-8xl tracking-tight lg:tracking-normal">
+        <h2 className="flex flex-col sm:flex-row items-center gap-5 md:gap-6 text-5xl xs:text-6xl sm:text-[54px] md:text-[64px] lg:text-8xl tracking-tighter">
           <div className="flex items-center gap-5 md:gap-6">
             <span className="hero-text inline-block">
               <span className="hero-text__inner inline-block">Hey !</span>
@@ -193,7 +193,7 @@ export const Hero = () => {
           </span>
         </h2>
 
-        <h1 className="flex flex-col sm:flex-row items-center gap-5 md:gap-6 text-5xl xs:text-6xl sm:text-[54px] md:text-[64px] lg:text-8xl tracking-tight lg:tracking-normal text-nowrap">
+        <h1 className="flex flex-col sm:flex-row items-center gap-5 md:gap-6 text-5xl xs:text-6xl sm:text-[54px] md:text-[64px] lg:text-8xl tracking-tighter text-nowrap">
           <span className="hero-text inline-block">
             <span className="hero-text__inner inline-block px-4 py-1 -mx-1 outline outline-base relative -rotate-5">
               <span className="size-2.5 outline absolute -left-1.5 -top-1.5 bg-mint"></span>

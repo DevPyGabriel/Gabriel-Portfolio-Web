@@ -100,7 +100,7 @@ export const Faq = () => {
             <div id="faq-heading-wrap" className="mb-8 xs:mb-10 sm:mb-12">
               <h2
                 id="faq-heading"
-                className="text-4xl leading-[1.15] tracking-tight xs:text-5xl sm:text-[54px] md:text-[64px] lg:text-6xl xl:text-7xl lg:leading-none lg:tracking-normal"
+                className="text-4xl leading-[1.15] tracking-tighter xs:text-5xl sm:text-[54px] md:text-[64px] lg:text-6xl xl:text-7xl lg:leading-none"
               >
                 <span className="faq-heading-reveal inline-block relative">
                   <span className="absolute -top-8 left-1 -rotate-3 whitespace-nowrap font-inter tracking-normal">
@@ -145,7 +145,7 @@ export const Faq = () => {
                       onClick={() => setOpenIndex(isOpen ? -1 : index)}
                       className="group flex w-full items-center justify-between gap-4 py-5 text-left outline-none focus-visible:ring-2 focus-visible:ring-blue focus-visible:ring-offset-4 focus-visible:ring-offset-yellow-200 sm:py-6"
                     >
-                      <span className="text-xl font-semibold leading-snug tracking-tight sm:text-2xl lg:text-[28px]">
+                      <span className="text-xl font-semibold leading-snug tracking-tighter sm:text-2xl lg:text-[28px]">
                         {faq.question}
                       </span>
                       <span className={`relative flex size-11 shrink-0 items-center justify-center rounded-full border-2 border-base shadow-tag transition-transform duration-300 group-hover:rotate-6 sm:size-12 ${accentClasses[index]}`} aria-hidden="true">

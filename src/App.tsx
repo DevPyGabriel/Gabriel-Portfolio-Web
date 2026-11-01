@@ -9,6 +9,8 @@ import { Process } from "./components/sections/Process";
 import { About } from "./components/sections/About";
 import { Services } from "./components/sections/Services";
 import { Faq } from "./components/sections/Faq";
+import { Contact } from "./components/sections/Contact";
+import { Footer } from "./components/layout/Footer";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -76,7 +78,9 @@ export default function App() {
         <Process />
         <About />
         <Faq />
+        <Contact />
       </main>
+      <Footer />
     </div>
   );
 }
