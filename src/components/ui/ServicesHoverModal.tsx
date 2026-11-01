@@ -1,4 +1,6 @@
+import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ArrowUpRight, BriefcaseBusiness, Code2, LayoutTemplate, Palette, Paperclip } from "lucide-react";
 import {
   useEffect,
@@ -6,6 +8,8 @@ import {
   useState,
   type ComponentType,
 } from "react";
+
+gsap.registerPlugin(ScrollTrigger);
 
 type Service = {
   title: string;
@@ -54,10 +58,102 @@ const services: Service[] = [
 ];
 
 export const ServicesHoverModal = () => {
+  const sectionRef = useRef<HTMLElement>(null);
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const modalRef = useRef<HTMLDivElement>(null);
   const quickX = useRef<((value: number) => void)[]>([]);
   const quickY = useRef<((value: number) => void)[]>([]);
+
+  useGSAP(
+    () => {
+      const section = sectionRef.current;
+      if (!section) return;
+
+      const motion = gsap.matchMedia();
+      motion.add("(prefers-reduced-motion: no-preference)", () => {
+        const heading = section.querySelector("h2");
+        if (heading) {
+          const headingParts = gsap.utils.toArray<HTMLElement>(
+            ".services-reveal",
+            heading,
+          );
+
+          gsap.fromTo(
+            headingParts,
+            {
+              autoAlpha: 0,
+              y: 28,
+              x: 8,
+              rotation: 4,
+            },
+            {
+              autoAlpha: 1,
+              y: 0,
+              x: 0,
+              rotation: (_index, element) =>
+                element.classList.contains("services-reveal--tilted") ? -2 : 0,
+              duration: 0.75,
+              stagger: 0.08,
+              ease: "power3.out",
+              scrollTrigger: {
+                trigger: heading,
+                start: "top 78%",
+                toggleActions: "play none none none",
+                once: true,
+              },
+            },
+          );
+        }
+
+        const intro = section.querySelector(".services-intro-reveal");
+        if (intro) {
+          gsap.from(intro, {
+            autoAlpha: 0,
+            y: 18,
+            duration: 0.55,
+            delay: 0.2,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: intro,
+              start: "top 82%",
+              toggleActions: "play none none none",
+              once: true,
+            },
+          });
+        }
+
+        gsap.utils
+          .toArray<HTMLElement>(".service-row-reveal", section)
+          .forEach((row, index) => {
+            gsap.fromTo(
+              row,
+              {
+                autoAlpha: 0,
+                y: 32,
+                scale: 0.985,
+              },
+              {
+                autoAlpha: 1,
+                y: 0,
+                scale: 1,
+                duration: 0.65,
+                delay: index * 0.04,
+                ease: "power3.out",
+                scrollTrigger: {
+                  trigger: row,
+                  start: "top 88%",
+                  toggleActions: "play none none none",
+                  once: true,
+                },
+              },
+            );
+          });
+      });
+
+      return () => motion.revert();
+    },
+    { scope: sectionRef },
+  );
 
   useEffect(() => {
     if (!modalRef.current) return;
@@ -104,7 +200,7 @@ export const ServicesHoverModal = () => {
       autoAlpha: visible ? 1 : 0,
       scale: visible ? 1 : 0,
       duration: 0.38,
-      ease: visible ? "back.out(1.7)" : "power3.in",
+      ease: visible ? "power3.out" : "power3.in",
     });
   };
 
@@ -115,13 +211,14 @@ export const ServicesHoverModal = () => {
 
   return (
     <section
+      ref={sectionRef}
       id="servicios"
       className="overflow-hidden bg-canvas pt-20 sm:pt-24 lg:pt-40 pb-12 sm:pb-16 lg:pb-20"
     >
       <div className="mx-auto w-full max-w-7xl px-5 sm:px-8 md:px-12">
         <div className="mb-10 grid gap-6 md:grid-cols-[1fr_auto] md:items-end md:gap-8 lg:mb-14">
           <h2 className="text-4xl leading-[1.15] xs:text-5xl sm:text-[54px] md:text-[64px] lg:text-6xl xl:text-7xl lg:leading-none tracking-tight">
-            <span className="inline-block relative">
+            <span className="services-reveal inline-block relative">
               <span className="absolute -top-8 left-1 -rotate-3 whitespace-nowrap font-inter tracking-normal">
                 <span className="relative flex items-center gap-1.5 rounded-md border-2 border-white bg-yellow-200 py-1.5 px-5 text-xs font-semibold shadow-tag outline-1 outline-base/10 sm:text-sm text-base">
                   <span className="absolute -left-3 flex size-8 -translate-y-1/2 items-center justify-center rounded-full border-2 border-white bg-yellow text-surface shadow-[0_2px_6px_rgb(23_23_23/0.18)]">
@@ -133,8 +230,8 @@ export const ServicesHoverModal = () => {
               </span>
               Cómo
             </span>{" "}
-            puedo{" "}
-            <span className="inline-block px-2 md:px-3 lg:px-4 lg:py-1 -mx-1 outline outline-base relative -rotate-2 bg-mint-100 text-mint">
+            <span className="services-reveal">puedo</span>{" "}
+            <span className="services-reveal services-reveal--tilted inline-block px-2 md:px-3 lg:px-4 lg:py-1 -mx-1 outline outline-base relative -rotate-2 bg-mint-100 text-mint">
               <span className="size-2.5 outline outline-base absolute -left-1.5 -top-1.5 bg-mint"></span>
               <span className="size-2.5 outline outline-base absolute -right-1.5 -top-1.5 bg-mint"></span>
               <span className="size-2.5 outline outline-base absolute -left-1.5 -bottom-1.5 bg-mint"></span>
@@ -142,7 +239,7 @@ export const ServicesHoverModal = () => {
               ayudarte
             </span>
           </h2>
-          <p className="max-w-md font-inter text-sm text-body leading-relaxed md:max-w-sm">
+          <p className="services-intro-reveal max-w-md font-inter text-sm text-body leading-relaxed md:max-w-sm">
             Tres servicios, una misma intención. Construir una presencia digital
             clara y memorable.
           </p>
@@ -155,7 +252,7 @@ export const ServicesHoverModal = () => {
               <button
                 key={service.title}
                 type="button"
-                className="group relative flex w-full flex-col items-stretch justify-center gap-4 border-b border-neutral-300 py-6 text-left transition-opacity duration-200 hover:opacity-55 sm:py-8 md:flex-row md:items-center md:justify-between md:min-h-36 lg:py-12"
+                className="service-row-reveal group relative flex w-full flex-col items-stretch justify-center gap-4 border-b border-neutral-300 py-6 text-left transition-opacity duration-200 hover:opacity-55 sm:py-8 md:flex-row md:items-center md:justify-between md:min-h-36 lg:py-12"
                 style={{
                   backgroundColor:
                     activeIndex === index ? service.softColor : "transparent",
